@@ -13,7 +13,7 @@ import contractInitState from './fixtures/token-pst-contract.json';
 
 // npx ts-mocha ./tests/test.test.ts
 describe('testing SmartWeave interactions', function (): void {
-    this.timeout(20000);
+    this.timeout(200000);
     it('should correctly create a new SmartWeave contract', async (): Promise<void> => {
 
         const arweave = Arweave.init({
