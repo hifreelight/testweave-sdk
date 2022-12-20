@@ -1,6 +1,6 @@
 import TestWeave from 'testweave-sdk';
 import Arweave from 'arweave';
-import { createContract, readContract, interactWrite, interactWriteDryRun } from 'smartweave';
+import { createContract, readContract, interactWrite, interactRead, interactWriteDryRun } from 'smartweave';
 import fs from 'fs';
 import contractInitState from './fixtures/did.json';
 
@@ -48,6 +48,13 @@ describe('testing SmartWeave interactions', function (): void {
 
         // mine the contract interaction transaction
         await testWeave.mine();
+
+        const name = await interactRead(arweave, testWeave.rootJWK, c, {
+            function: 'getName',
+            address: "address"
+        });
+
+        console.log("name--->:", name);
 
         // get the new balance of the generated address (it should be 23999392)
         const generatedAddressBalance = await arweave.wallets.getBalance(generatedAddr)
