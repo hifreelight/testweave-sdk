@@ -49,6 +49,8 @@ export function handle(state, action) {
             name: action.input.name
         }
 
+        state.addrs.push(action.input.address);
+
         return { state }
     }
 
@@ -78,7 +80,7 @@ export function handle(state, action) {
         const start = action.input.start
         const limit = action.input.limit
 
-        return { result: state.addresses.slice(start, start + limit), total: state.addresses.length}
+        return { result: state.addrs.slice(start, start + limit), total: state.addrs.length}
     }
 
     throw new ContractError('Invalid input')
