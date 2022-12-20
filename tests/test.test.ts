@@ -17,7 +17,7 @@ describe('testing SmartWeave interactions', function (): void {
     it('should correctly create a new SmartWeave contract', async (): Promise<void> => {
 
         const arweave = Arweave.init({
-            host: '192.168.130.185',
+            host: 'localhost',
             port: 1984,
             protocol: 'http',
             timeout: 20000,
