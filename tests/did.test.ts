@@ -27,6 +27,8 @@ describe('testing SmartWeave interactions', function (): void {
         const c = await createContract(arweave, testWeave.rootJWK, contractSource, JSON.stringify(contractInitState));
         await testWeave.mine();
 
+        console.log("contractId is:" + c);
+
         // read the contract before performing any interaction
         const beforeTransaction = await readContract(arweave, c);
         console.log(`Before interact write: ${JSON.stringify(beforeTransaction)}`)
