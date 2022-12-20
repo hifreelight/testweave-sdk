@@ -42,6 +42,8 @@ describe('testing SmartWeave interactions', function (): void {
         const jkw = await arweave.wallets.generate();
         const generatedAddr = await arweave.wallets.getAddress(jkw)
 
+        console.log("testWeave.rootJWK:" + testWeave.rootJWK)
+
         // interact with the contract
         const iwt = await interactWrite(arweave, testWeave.rootJWK, c, {
             function: 'transfer',
