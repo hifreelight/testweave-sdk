@@ -23,10 +23,10 @@ describe('testing SmartWeave interactions', function (): void {
         // load the contract as a string
         const contractSource = fs.readFileSync('./tests/fixtures/did.js').toString();
         // create the contract and mine the transaction for creating it
-        // const c = await createContract(arweave, testWeave.rootJWK, contractSource, JSON.stringify(contractInitState));
-        // await testWeave.mine();
+        const c = await createContract(arweave, testWeave.rootJWK, contractSource, JSON.stringify(contractInitState));
+        await testWeave.mine();
 
-        const c = "cxgUwSCnYThPmpQInYDOsFQtsf0zjGc6KbaZm-rg-Jc";
+        // const c = "cxgUwSCnYThPmpQInYDOsFQtsf0zjGc6KbaZm-rg-Jc";
 
         console.log("contractId is:" + c);
 

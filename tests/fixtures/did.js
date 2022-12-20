@@ -19,35 +19,8 @@ export function handle(state, action) {
         if (state.names[action.input.name]) {
             throw new ContractError('Name already registered')
         }
-        state.names[action.input.name] = {
-            address: action.input.address
-        }
-        state.addresses[action.input.address] = {
-            name: action.input.name
-        }
-
-        return { state }
-    }
-
-    if (action.input.function === 'update') {
-        ContractAssert(action.caller === state.owner, "Only the owner of this weeve can register");
-
-        if (typeof action.input.name !== 'string' || action.input.name.length < 3) {
-            throw new ContractError(`Invalid name provided: ${action.input.name}`)
-        }
-        if (typeof action.input.address !== 'string') {
-            throw new ContractError('Must provide address to be associated with the name')
-        }
-        if (!state.names[action.input.name]) {
-            throw new ContractError('Name not registered')
-        }
-
-        state.names[action.input.name] = {
-            address: action.input.address
-        }
-        state.addresses[action.input.address] = {
-            name: action.input.name
-        }
+        state.names[action.input.address] = action.input.name
+        state.addresses[action.input.name] = action.input.address
 
         state.addrs.push(action.input.address);
 
