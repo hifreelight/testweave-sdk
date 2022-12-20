@@ -12,7 +12,9 @@
         "outDir": "dist"
     },
     "include": [
-        "src"
+        "src",
+        "tests",
+        "tests/**/*.json"
     ],
     "exclude": [
         "tests",

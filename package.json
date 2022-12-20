@@ -48,6 +48,7 @@
     "@types/axios": "^0.14.0",
     "arweave": "^1.10.11",
     "axios": "^0.21.1",
-    "smartweave": "^0.4.27"
+    "smartweave": "^0.4.27",
+    "testweave-sdk": "^0.2.2"
   }
 }
