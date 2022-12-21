@@ -2,10 +2,6 @@
 // Supports just one level of names.
 // Supports associating a address with a name.
 
-// Note: this is untested example atm.
-
-// TODO: require a minimum reward or burn of Ar to register a name.
-
 export function handle(state, action) {
     if (action.input.function === 'register') {
         ContractAssert(action.caller === state.owner, "Only the owner of this weeve can register");
